@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function usePageTimeout(duration = 10 * 60 * 1000) {
+function usePageTimeout(duration = 3 * 60 * 1000) {
     const navigate = useNavigate();
 
     useEffect(() => {
