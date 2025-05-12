@@ -146,27 +146,33 @@ const CameraPage: React.FC = () => {
     const handleFinish = async () => {
         if (!imagePreview) return;
 
-        const response = await fetch(imagePreview);
-        const blob = await response.blob();
-        const file = new File([blob], 'photo.jpg', { type: 'image/jpeg' });
+        // Kamera ishini to'xtatishni eng boshida chaqiramiz
+        stopCamera();
 
-        mutate(
-            {
-                image: file,
-                scienceid: scienceId,
-                phone: phoneNumber,
-                user_id: String(id),
-            },
-            {
-                onSuccess: () => {
-                    stopCamera();
-                    navigate('/success');
+        try {
+            const response = await fetch(imagePreview);
+            const blob = await response.blob();
+            const file = new File([blob], 'photo.jpg', { type: 'image/jpeg' });
+
+            mutate(
+                {
+                    image: file,
+                    scienceid: scienceId,
+                    phone: phoneNumber,
+                    user_id: String(id),
                 },
-                onError: (error) => {
-                    console.error('Error submitting form:', error);
-                },
-            }
-        );
+                {
+                    onSuccess: () => {
+                        navigate('/success');
+                    },
+                    onError: (error) => {
+                        console.error('Error submitting form:', error);
+                    },
+                }
+            );
+        } catch (error) {
+            console.error('Error converting image preview to file:', error);
+        }
     };
 
     useEffect(() => {
