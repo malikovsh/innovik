@@ -22,12 +22,12 @@ const Layout: React.FC = () => {
                         <img
                             src={gerb}
                             alt="Emblem"
-                            className="w-32 h-32 object-contain"
+                            className="w-28 h-28 object-contain"
                         />
                     </div>
                 </div>
             </header>
-            <main className=" mx-auto py-8">
+            <main className=" mx-auto">
                 <Outlet />
             </main>
         </div>

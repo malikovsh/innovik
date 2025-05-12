@@ -73,39 +73,45 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
 
     return (
         <div className={`bg-white rounded-lg p-6 shadow ${className}`}>
-            <h3 className="text-2xl font-medium text-gray-900 mb-6 inline-block">
+            <h3 className="text-2xl text-center font-medium text-gray-900 mb-6">
                 Ma'lumotlaringizni kiriting
             </h3>
 
-            <div className="flex gap-4 mb-6">
-                <div className="flex gap-2">
-                    <div className="bg-gray-50 border border-gray-300 rounded-lg px-4 py-1 text-gray-600 font-medium select-none">
-                        +998
+            <div className="flex gap-4 mb-6 justify-between px-10 pt-4">
+                <div className=" flex items-center gap-2 text-xl">
+                    <div className="text-gray-800 ">Tel:</div>
+                    <div className="flex gap-2">
+                        <div className="bg-gray-50 border border-gray-300 rounded-lg px-4 py-1 text-gray-600 font-medium select-none">
+                            +998
+                        </div>
+                        <input
+                            type="text"
+                            value={phoneNumber}
+                            onChange={handlePhoneChange}
+                            placeholder="99 999-99-99"
+                            className="flex-1 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3f739b] focus:border-[#3f739b] outline-none transition-all text-xl"
+                            maxLength={11}
+                        />
                     </div>
-                    <input
-                        type="text"
-                        value={phoneNumber}
-                        onChange={handlePhoneChange}
-                        placeholder="99 999-99-99"
-                        className="flex-1 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3f739b] focus:border-[#3f739b] outline-none transition-all text-lg"
-                        maxLength={11}
-                    />
                 </div>
 
-                <div className="flex gap-2">
-                    <input
-                        type="text"
-                        value={scienceId}
-                        onChange={handleScienceIdChange}
-                        placeholder="XXX-XXXX-XXXX"
-                        className="flex-1 px-4 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3f739b] focus:border-[#3f739b] outline-none transition-all text-lg uppercase"
-                        maxLength={14}
-                    />
+                <div className="flex items-center gap-2 text-xl">
+                    <div className="text-gray-800 text-xl">ScienceID:</div>
+                    <div className="flex gap-2">
+                        <input
+                            type="text"
+                            value={scienceId}
+                            onChange={handleScienceIdChange}
+                            placeholder="XXX-XXXX-XXXX"
+                            className="flex-1 px-4 py-1 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#3f739b] focus:border-[#3f739b] outline-none transition-all text-xl uppercase"
+                            maxLength={14}
+                        />
+                    </div>
                 </div>
             </div>
 
             {/* <div>
-                <p className="text-lg text-gray-600 mb-2">
+                <p className="text-xl text-gray-600 mb-2">
                     ScienceID mavjud bo'lmasa PNFLni kiriting:
                 </p>
 

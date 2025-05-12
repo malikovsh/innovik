@@ -7,6 +7,9 @@ function usePageTimeout(duration = 3 * 60 * 1000) {
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate('/', { replace: true });
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
         }, duration);
 
         return () => clearTimeout(timer);

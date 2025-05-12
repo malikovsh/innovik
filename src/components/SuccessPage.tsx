@@ -16,7 +16,7 @@ const SuccessPage: React.FC = () => {
         window.location.reload();
     };
     return (
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-[1300px] mx-auto mt-8">
             <div className="bg-white rounded-lg p-8 shadow-sm">
                 <div className="flex items-center justify-between mb-8">
                     <h1 className="text-3xl font-serif text-[#3f739b]">
@@ -30,14 +30,14 @@ const SuccessPage: React.FC = () => {
                     </button>
                 </div>
 
-                <div className="border-2 border-dashed border-gray-200 rounded-lg p-8">
-                    <div className="space-y-4">
-                        <div className="flex gap-2 ">
-                            <span className="font-medium text-xl max-w-[65%]">
-                                {structure} {position.toLocaleLowerCase()}
+                <div className="border-2 border-dashed border-gray-200 rounded-lg p-8 ">
+                    <div className="flex flex-col">
+                        <div className="flex gap-2">
+                            <span className="font-medium text-2xl">
+                                {structure} {position.toLocaleLowerCase()}:
                             </span>
-                            <span className="text-blue-600 flex-1 text-xl">
-                                {user_fish}
+                            <span className="text-[#3f739b] text-2xl">
+                                {user_fish.split(' ').slice(0, 2).join(' ')}
                             </span>
                         </div>
 
@@ -45,7 +45,7 @@ const SuccessPage: React.FC = () => {
                             <span className="font-medium">
                                 Uchrashuv vaqti:
                             </span>
-                            <span className="text-blue-600">
+                            <span className="text-[#3f739b]">
                                 so'rov jonatildi
                             </span>
                         </div> */}
@@ -54,24 +54,28 @@ const SuccessPage: React.FC = () => {
                             <span className="font-medium">
                                 Uchrashuvni xonasi:
                             </span>
-                            <span className="text-blue-600">307-xona</span>
+                            <span className="text-[#3f739b]">307-xona</span>
                         </div> */}
 
-                        <div className="flex gap-2 pt-16">
-                            <span className="font-medium">Murojatchi:</span>
-                            <span className="text-blue-600">{m_fish}</span>
+                        <div className="flex gap-2 pt-4">
+                            <span className="font-medium text-2xl">
+                                Murojatchi:
+                            </span>
+                            <span className="text-[#3f739b] text-2xl">
+                                {m_fish.split(' ').slice(0, 2).join(' ')}
+                            </span>
                         </div>
 
-                        <div className="mt-8 flex items-end gap-2 justify-center text-xl">
+                        <div className="mt-16 flex items-end gap-2 justify-center text-2xl">
                             <div className="font-medium">
                                 Murojaat raqamingiz:
                             </div>
-                            <div className="font-bold text-blue-600 text-2xl">
+                            <div className="font-bold text-[#3f739b] text-3xl">
                                 {id}
                             </div>
                         </div>
 
-                        <div className="text-center mt-4">
+                        <div className="text-center mt-4 text-xl">
                             <span className="underline">
                                 Sizga SMS xabarnoma yuborildi!
                             </span>

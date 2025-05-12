@@ -21,7 +21,7 @@ const DepartmentCard: React.FC<{
 
     return (
         <div
-            className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all cursor-pointer relative group"
+            className="bg-white rounded-xl px-6 py-2 shadow-sm hover:shadow-md transition-all cursor-pointer relative group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
