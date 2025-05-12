@@ -12,7 +12,7 @@ const Layout: React.FC = () => {
                         <img
                             src={innovation}
                             alt="Logo"
-                            className="w-40 h-40 object-contain"
+                            className="w-32 h-32 object-contain"
                         />
                     </div>
                     <h1 className="text-4xl font-serif text-[#3f739b] text-center">
@@ -22,7 +22,7 @@ const Layout: React.FC = () => {
                         <img
                             src={gerb}
                             alt="Emblem"
-                            className="w-40 h-40 object-contain"
+                            className="w-32 h-32 object-contain"
                         />
                     </div>
                 </div>

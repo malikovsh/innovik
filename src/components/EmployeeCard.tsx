@@ -3,6 +3,7 @@ import { Mail, Building, Phone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import defaultImage from '../assets/logo/defaultuser.webp';
 import { Employee } from '../types/InnovationType';
+import toast from 'react-hot-toast';
 
 const API_URL = import.meta.env.VITE_BASE_URI;
 
@@ -17,11 +18,28 @@ const EmployeeCard: React.FC<Employee> = ({
     online,
 }) => {
     const navigate = useNavigate();
+    const handleNext = () => {
+        if (online === 0) {
+            toast.success(
+                full_name + ' binoda emas, iltimos boshqa xodimni tanlang',
+                {
+                    duration: 5000,
+                    position: 'top-right',
+                    style: {
+                        fontSize: '20px',
+                        width: '700px',
+                    },
+                }
+            );
+            return;
+        }
+        navigate(`/employee/${id}`);
+    };
 
     return (
         <div
             className="bg-white rounded-lg p-6 shadow hover:shadow-md transition-shadow cursor-pointer"
-            onClick={() => navigate(`/employee/${id}`)}
+            onClick={handleNext}
         >
             <div className="flex items-start gap-4 mb-4">
                 <img
@@ -39,7 +57,7 @@ const EmployeeCard: React.FC<Employee> = ({
                 <div className="ml-auto">
                     <div
                         className={`w-3 h-3 rounded-full  ${
-                            online ? 'bg-green-500' : 'bg-red-500'
+                            online === 1 ? 'bg-green-500' : 'bg-red-500'
                         }`}
                     ></div>
                 </div>
