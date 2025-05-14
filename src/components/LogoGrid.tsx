@@ -12,7 +12,7 @@ const LogoGrid = () => {
         {
             src: education,
             alt: "Oliy ta'lim",
-            path: '',
+            path: '/maintenance',
         },
         {
             src: innovation,
@@ -22,22 +22,22 @@ const LogoGrid = () => {
         {
             src: markaz,
             alt: 'Yoshlar akademiyasi',
-            path: '',
+            path: '/maintenance',
         },
         {
             src: milliy,
             alt: 'Fan-texnik',
-            path: '',
+            path: '/maintenance',
         },
         {
             src: ekonomy,
             alt: 'Ilmiy faoliyat',
-            path: '',
+            path: '/maintenance',
         },
         {
             src: yoshlar,
             alt: 'Vazirlik',
-            path: '',
+            path: '/maintenance',
         },
     ];
 

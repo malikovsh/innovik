@@ -7,6 +7,7 @@ import CameraPage from './components/CameraPage';
 import SuccessPage from './components/SuccessPage';
 import DatabaseDepartmentPage from './components/DatabaseDepartmentPage';
 import { MeetingConfirmationLayout } from './components/MeetingConfirmationLayout';
+import MaintenancePage from './components/MaintenancePage';
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
     {
         path: '/orders',
         element: <MeetingConfirmationLayout />,
+    },
+    {
+        path: '/maintenance',
+        element: <MaintenancePage />,
     },
 ]);
 
