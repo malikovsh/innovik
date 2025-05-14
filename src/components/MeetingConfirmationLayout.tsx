@@ -23,7 +23,7 @@ export const MeetingConfirmationLayout: React.FC = () => {
                 <div className="bg-white rounded-md shadow-md overflow-hidden transition-all duration-300">
                     <div className=" px-6 py-4">
                         <h2 className=" text-2xl font-semibold">
-                            Uchrashuv Tasdiqlanmoqda
+                            Uchrashuv tasdiqlanmoqda
                         </h2>
                     </div>
                     <div className="p-6 max-h-[500px] overflow-y-auto">
