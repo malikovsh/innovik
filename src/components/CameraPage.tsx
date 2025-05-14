@@ -146,7 +146,7 @@ const CameraPage: React.FC = () => {
     const handleFinish = async () => {
         if (!imagePreview) return;
 
-        // Kamera ishini to'xtatishni eng boshida chaqiramiz
+        // Stop camera immediately
         stopCamera();
 
         try {
@@ -215,7 +215,7 @@ const CameraPage: React.FC = () => {
     );
 
     return (
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-xl mx-auto mt-4">
             <div className="flex items-center justify-between mb-8">
                 <h1 className="text-2xl font-serif text-[#3f739b]">
                     Kameraga qarang
@@ -237,16 +237,31 @@ const CameraPage: React.FC = () => {
                             <img
                                 src={imagePreview}
                                 alt="Preview"
-                                className="w-full h-full object-contain"
+                                className="w-full h-full object-cover transform scale-x-[-1]"
                             />
                         </div>
                     ) : (
-                        <video
-                            ref={videoRef}
-                            autoPlay
-                            playsInline
-                            className="w-full h-full object-cover"
-                        />
+                        <div className="relative w-full h-full">
+                            <video
+                                ref={videoRef}
+                                autoPlay
+                                playsInline
+                                className="w-full h-full object-cover transform scale-x-[-1]"
+                            />
+                            {cameraActive && (
+                                <>
+                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <div className="w-[70%] h-[70%] border-4 border-white border-dashed  rounded-full opacity-70"></div>
+                                    </div>
+                                    <div className="absolute bottom-8 left-0 right-0 text-center">
+                                        <p className="text-white text-lg font-medium bg-black bg-opacity-50 py-1 px-3 rounded-full inline-block">
+                                            Iltimos yuzingizni doira ichiga
+                                            joylang
+                                        </p>
+                                    </div>
+                                </>
+                            )}
+                        </div>
                     )}
                 </div>
 
