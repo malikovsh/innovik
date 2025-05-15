@@ -39,8 +39,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
 
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '');
-        const formatted = formatPhoneNumber(value);
-        dispatch(setPhoneNumber(formatted));
+        dispatch(setPhoneNumber(value.slice(0, 9)));
     };
 
     const formatScienceId = (value: string): string => {
@@ -86,7 +85,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                         </div>
                         <input
                             type="text"
-                            value={phoneNumber}
+                            value={formatPhoneNumber(phoneNumber)}
                             onChange={handlePhoneChange}
                             placeholder="99 999-99-99"
                             className="flex-1 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3f739b] focus:border-[#3f739b] outline-none transition-all text-xl"

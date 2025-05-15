@@ -158,7 +158,7 @@ const CameraPage: React.FC = () => {
                 {
                     image: file,
                     scienceid: scienceId,
-                    phone: phoneNumber,
+                    phone: '998' + phoneNumber,
                     user_id: String(id),
                 },
                 {
