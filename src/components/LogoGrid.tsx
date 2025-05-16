@@ -8,38 +8,6 @@ import yoshlar from '../assets/logo/yoshlarLogo.png';
 
 const LogoGrid = () => {
     const navigate = useNavigate();
-    const logos = [
-        {
-            src: education,
-            alt: "Oliy ta'lim",
-            path: '/maintenance',
-        },
-        {
-            src: innovation,
-            alt: 'Innovatsion rivojlanish',
-            path: '/innovation',
-        },
-        {
-            src: markaz,
-            alt: 'Yoshlar akademiyasi',
-            path: '/maintenance',
-        },
-        {
-            src: milliy,
-            alt: 'Fan-texnik',
-            path: '/maintenance',
-        },
-        {
-            src: ekonomy,
-            alt: 'Ilmiy faoliyat',
-            path: '/maintenance',
-        },
-        {
-            src: yoshlar,
-            alt: 'Vazirlik',
-            path: '/maintenance',
-        },
-    ];
 
     return (
         <div className="container mx-auto px-4 py-10">
@@ -48,20 +16,87 @@ const LogoGrid = () => {
                 VAZIRLIGI
             </h1>
 
-            <div className="grid grid-cols-3 gap-8 max-w-5xl mx-auto mt-40">
-                {logos.map((logo, index) => (
-                    <div
-                        key={index}
-                        className="aspect-square bg-white w-64 h-64 flex items-center justify-center rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer overflow-hidden"
-                        onClick={() => navigate(logo.path)}
-                    >
-                        <img
-                            src={logo.src}
-                            alt={logo.alt}
-                            className="w-full h-full object-contain p-6"
-                        />
+            <div className="grid grid-cols-3 gap-12 max-w-5xl mx-auto mt-30">
+                <div
+                    className="bg-white w-80 h-[340px] rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-2 "
+                    onClick={() => navigate('/maintenance')}
+                >
+                    <img
+                        src={education}
+                        alt="Oliy ta'lim, fan va innovatsiyalar vazirligi"
+                        className="w-52 h-52 object-contain p-2 "
+                    />
+                    <div className="mt-2 text-xl font-serif text-center text-blue-800 px-2">
+                        Oliy ta'lim, fan <br /> va innovatsiyalar vazirligi
                     </div>
-                ))}
+                </div>
+                <div
+                    className="bg-white w-80 h-[340px] rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-2 "
+                    onClick={() => navigate('/innovation')}
+                >
+                    <img
+                        src={innovation}
+                        alt="Innovatsion rivojlanish agentligi"
+                        className="w-52 h-52 object-contain p-2 "
+                    />
+                    <div className="mt-2 text-xl font-serif text-center text-blue-800 px-2">
+                        Innovatsion rivojlanish <br /> agentligi
+                    </div>
+                </div>
+                <div
+                    className="bg-white w-80 h-[340px] rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-2 "
+                    onClick={() => navigate('/maintenance')}
+                >
+                    <img
+                        src={markaz}
+                        alt="Ilmiy-texnik axborot markazi"
+                        className="w-52 h-52 object-contain p-2 "
+                    />
+                    <div className="mt-2 text-xl font-serif text-center text-blue-800 px-2">
+                        Ilmiy-texnik axborot <br /> markazi
+                    </div>
+                </div>
+                <div
+                    className="bg-white w-80 h-[340px] rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-2 "
+                    onClick={() => navigate('/maintenance')}
+                >
+                    <img
+                        src={milliy}
+                        alt="Innovatsiyalarni joriy qilish va texnologiyalar transferi milliy ofisi"
+                        className="w-52 h-52 object-contain p-2 "
+                    />
+                    <div className="mt-2 text-xl font-serif text-center text-blue-800 px-2">
+                        Innovatsiyalarni joriy qilish <br /> va texnologiyalar
+                        transferi milliy ofisi
+                    </div>
+                </div>
+                <div
+                    className="bg-white w-80 h-[340px] rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-2 border"
+                    onClick={() => navigate('/maintenance')}
+                >
+                    <img
+                        src={ekonomy}
+                        alt="Ilm-fanni moliyalashtirish va innovatsiyalarni qoʻllab-quvvatlash jamgʻarmasi"
+                        className="w-52 h-52 object-contain p-2 "
+                    />
+                    <div className="mt-2 text-xl font-serif text-center text-blue-800 px-2">
+                        Ilm-fanni moliyalashtirish <br /> va innovatsiyalarni
+                        qoʻllab-quvvatlash jamgʻarmasi
+                    </div>
+                </div>
+                <div
+                    className="bg-white w-80 h-[340px] rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-2 border"
+                    onClick={() => navigate('/maintenance')}
+                >
+                    <img
+                        src={yoshlar}
+                        alt="Yoshlar Akademiyasi"
+                        className="w-60 h-60 object-contain p-2 "
+                    />
+                    <div className="mt-2 text-xl font-serif text-center text-blue-800 px-2">
+                        Yoshlar Akademiyasi
+                    </div>
+                </div>
             </div>
         </div>
     );
