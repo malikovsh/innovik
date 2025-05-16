@@ -29,12 +29,12 @@ const DatabaseDepartmentPage: React.FC = () => {
     return (
         <div className="mx-auto py-8 px-4">
             <div className="flex items-center justify-between mb-8">
-                <h1 className="text-3xl font-serif text-[#3f739b]">
+                <h1 className="text-3xl font-serif text-blue-800">
                     {data.data.name}
                 </h1>
                 <button
                     onClick={() => navigate(-1)}
-                    className="px-4 py-2 text-xl text-white bg-[#3f739b] rounded-md"
+                    className="px-4 py-2 text-xl text-white bg-blue-800 rounded-md"
                 >
                     Orqaga
                 </button>

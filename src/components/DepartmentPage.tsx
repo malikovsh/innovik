@@ -27,7 +27,7 @@ const DepartmentCard: React.FC<{
         >
             {isHovered && (
                 <button
-                    className="absolute top-4 right-4 py-2 px-3 bg-[#3f739b] text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    className="absolute top-4 right-4 py-2 px-3 bg-blue-800 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                     onClick={(e) => {
                         e.stopPropagation();
                         onDepartmentClick(department);
@@ -110,7 +110,7 @@ const DepartmentPage: React.FC = () => {
             <div className="flex items-center justify-end mb-8">
                 <button
                     onClick={() => navigate('/')}
-                    className="px-4 py-2 text-xl text-white bg-[#3f739b] rounded-md"
+                    className="px-4 py-2 text-xl text-white bg-blue-800 rounded-md"
                 >
                     Orqaga
                 </button>

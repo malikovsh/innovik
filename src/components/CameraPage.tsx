@@ -217,12 +217,12 @@ const CameraPage: React.FC = () => {
     return (
         <div className="max-w-xl mx-auto mt-4">
             <div className="flex items-center justify-between mb-8">
-                <h1 className="text-2xl font-serif text-[#3f739b]">
+                <h1 className="text-2xl font-serif text-blue-800">
                     Kameraga qarang
                 </h1>
                 <button
                     onClick={handleNavigateBack}
-                    className="px-3 py-1.5 text-base text-white bg-[#3f739b] rounded-md"
+                    className="px-3 py-1.5 text-base text-white bg-blue-800 rounded-md"
                 >
                     Orqaga
                 </button>
@@ -279,7 +279,7 @@ const CameraPage: React.FC = () => {
                                 className={`px-6 py-1.5 text-sm text-white rounded ${
                                     isPending
                                         ? 'bg-gray-400 cursor-not-allowed'
-                                        : 'bg-[#3f739b]'
+                                        : 'bg-blue-800'
                                 }`}
                                 onClick={handleFinish}
                                 disabled={isPending}
@@ -289,7 +289,7 @@ const CameraPage: React.FC = () => {
                         </>
                     ) : (
                         <button
-                            className="px-6 py-1.5 text-sm bg-[#3f739b] text-white rounded"
+                            className="px-6 py-1.5 text-sm bg-blue-800 text-white rounded"
                             onClick={capturePhoto}
                             disabled={!cameraActive || !!permissionError}
                         >

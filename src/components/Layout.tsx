@@ -2,10 +2,19 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import innovation from '../assets/logo/innovationLogo.svg';
 import gerb from '../assets/logo/gerbLogo.png';
+import bgImage from '../assets/bgImage.webp';
 
 const Layout: React.FC = () => {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div
+            className="min-h-screen"
+            style={{
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed',
+            }}
+        >
             <header className="bg-white shadow-sm">
                 <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -15,7 +24,7 @@ const Layout: React.FC = () => {
                             className="w-32 h-32 object-contain"
                         />
                     </div>
-                    <h1 className="text-4xl font-serif text-[#3f739b] text-center">
+                    <h1 className="text-4xl font-serif text-blue-800 text-center">
                         INNOVATSION RIVOJLANISH AGENTLIGI
                     </h1>
                     <div className="flex items-center gap-4">
@@ -27,7 +36,7 @@ const Layout: React.FC = () => {
                     </div>
                 </div>
             </header>
-            <main className=" mx-auto">
+            <main className="mx-auto h-[calc(100vh-9rem)] overflow-auto">
                 <Outlet />
             </main>
         </div>

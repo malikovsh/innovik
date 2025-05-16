@@ -19,12 +19,12 @@ const SuccessPage: React.FC = () => {
         <div className="max-w-[1300px] mx-auto mt-8">
             <div className="bg-white rounded-lg p-8 shadow-sm">
                 <div className="flex items-center justify-between mb-8">
-                    <h1 className="text-3xl font-serif text-[#3f739b]">
+                    <h1 className="text-3xl font-serif text-blue-800">
                         Uchrashuv tasdiqlash uchun so’rov yuborildi
                     </h1>
                     <button
                         onClick={handleBack}
-                        className="px-4 py-2 text-xl text-white bg-[#3f739b] rounded-md"
+                        className="px-4 py-2 text-xl text-white bg-blue-800 rounded-md"
                     >
                         Bosh sahifaga
                     </button>
@@ -36,7 +36,7 @@ const SuccessPage: React.FC = () => {
                             <span className="font-medium text-2xl">
                                 {structure} {position.toLocaleLowerCase()}:
                             </span>
-                            <span className="text-[#3f739b] text-2xl">
+                            <span className="text-blue-800 text-2xl">
                                 {user_fish.split(' ').slice(0, 2).join(' ')}
                             </span>
                         </div>
@@ -45,7 +45,7 @@ const SuccessPage: React.FC = () => {
                             <span className="font-medium">
                                 Uchrashuv vaqti:
                             </span>
-                            <span className="text-[#3f739b]">
+                            <span className="text-blue-800">
                                 so'rov jonatildi
                             </span>
                         </div> */}
@@ -54,14 +54,14 @@ const SuccessPage: React.FC = () => {
                             <span className="font-medium">
                                 Uchrashuvni xonasi:
                             </span>
-                            <span className="text-[#3f739b]">307-xona</span>
+                            <span className="text-blue-800">307-xona</span>
                         </div> */}
 
                         <div className="flex gap-2 pt-4">
                             <span className="font-medium text-2xl">
                                 Murojatchi:
                             </span>
-                            <span className="text-[#3f739b] text-2xl">
+                            <span className="text-blue-800 text-2xl">
                                 {m_fish.split(' ').slice(0, 2).join(' ')}
                             </span>
                         </div>
@@ -70,7 +70,7 @@ const SuccessPage: React.FC = () => {
                             <div className="font-medium">
                                 Murojaat raqamingiz:
                             </div>
-                            <div className="font-bold text-[#3f739b] text-3xl">
+                            <div className="font-bold text-blue-800 text-3xl">
                                 {id}
                             </div>
                         </div>

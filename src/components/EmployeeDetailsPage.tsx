@@ -26,12 +26,12 @@ const EmployeeDetailsPage: React.FC = () => {
         <div className="container mx-auto py-8 px-4">
             <div className="max-w-4xl mx-auto">
                 <div className="flex items-center justify-between mb-8">
-                    <h1 className="text-2xl max-w-2xl text-center font-serif text-[#3f739b]">
+                    <h1 className="text-2xl max-w-2xl text-center font-serif text-blue-800">
                         {data?.data.position} bilan uchrashuv tashkil qilish
                     </h1>
                     <button
                         onClick={() => navigate(-1)}
-                        className="px-4 py-2 text-xl text-white bg-[#3f739b] rounded-md"
+                        className="px-4 py-2 text-xl text-white bg-blue-800 rounded-md"
                     >
                         Orqaga
                     </button>

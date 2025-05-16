@@ -88,7 +88,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                             value={formatPhoneNumber(phoneNumber)}
                             onChange={handlePhoneChange}
                             placeholder="99 999-99-99"
-                            className="flex-1 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3f739b] focus:border-[#3f739b] outline-none transition-all text-xl"
+                            className="flex-1 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-blue-800 outline-none transition-all text-xl"
                             maxLength={11}
                         />
                     </div>
@@ -102,7 +102,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                             value={scienceId}
                             onChange={handleScienceIdChange}
                             placeholder="XXX-XXXX-XXXX"
-                            className="flex-1 px-4 py-1 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#3f739b] focus:border-[#3f739b] outline-none transition-all text-xl uppercase"
+                            className="flex-1 px-4 py-1 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-800 focus:border-blue-800 outline-none transition-all text-xl uppercase"
                             maxLength={14}
                         />
                     </div>
@@ -120,7 +120,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                         value={pnfl}
                         onChange={handlePnflChange}
                         placeholder="PNFL (14 raqam)"
-                        className="px-4 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#3f739b] focus:border-[#3f739b] outline-none transition-all text-lg"
+                        className="px-4 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-blue-800 outline-none transition-all text-lg"
                         maxLength={14}
                     />
                 </div>
@@ -130,7 +130,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                 <button
                     className={`px-8 py-2 rounded transition-all ${
                         isValid
-                            ? 'bg-[#3f739b] text-white cursor-pointer'
+                            ? 'bg-blue-800 text-white cursor-pointer'
                             : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
                     onClick={() => {

@@ -12,7 +12,7 @@ const MaintenancePage: React.FC = () => {
                 </h1>
                 <button
                     onClick={() => navigate('/')}
-                    className="bg-[#3f739b] text-white px-6 py-2 rounded-md transition"
+                    className="bg-blue-800 text-white px-6 py-2 rounded-md transition"
                 >
                     Bosh sahifaga
                 </button>
