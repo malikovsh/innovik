@@ -49,7 +49,7 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                 Ma'lumotlaringizni kiriting
             </h3>
 
-            <div className="flex gap-4 mb-6 justify-between px-10 pt-4">
+            <div className="flex items-center justify-center mb-6 gap-10">
                 <div className="flex items-center gap-2 text-xl">
                     <div className="text-gray-800 text-xl">ScienceID:</div>
                     <div className="flex gap-2">
@@ -58,29 +58,11 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                             value={scienceId}
                             onChange={handleScienceIdChange}
                             placeholder="XXX-XXXX-XXXX"
-                            className="flex-1 px-4 py-1 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-800 focus:border-blue-800 outline-none transition-all text-xl uppercase"
+                            className="flex-1 px-4 py-1 border border-gray-300 rounded focus:ring-2 focus:ring-blue-800 focus:border-blue-800 outline-none transition-all text-xl uppercase"
                             maxLength={14}
                         />
                     </div>
                 </div>
-                <div className="flex flex-col items-center mb-4">
-                    <span className="text-gray-700 text-xl mb-2 text-center">
-                        ScienceID mavjuda bo'lmasa <br />
-                        iltimos{' '}
-                        <a
-                            // href="https://id.ilmiy.uz"
-                            target="_blank"
-                            className="text-blue-600 font-bold underline"
-                        >
-                            id.ilmiy.uz
-                        </a>{' '}
-                        orqali ro'yxatdan o'ting
-                    </span>
-                    <QRCodeCanvas value="https://id.ilmiy.uz" size={160} />
-                </div>
-            </div>
-
-            <div className="flex justify-end mt-8">
                 <button
                     className={`px-8 py-2 rounded transition-all ${
                         isValid
@@ -96,6 +78,24 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                 >
                     Tasdiqlang
                 </button>
+            </div>
+
+            <div className="flex items-start justify-start pt-4">
+                <div className="flex flex-col items- mb-4 gap-2">
+                    <span className="text-gray-800 font-semibold text-xl mb-2">
+                        ScienceID raqamingiz yo'qmi?
+                    </span>
+                    <QRCodeCanvas
+                        value="https://id.ilmiy.uz"
+                        size={80}
+                        className="ml-5"
+                    />
+                    <span className="text-gray-800 text-lg mb-2">
+                        U holda <b>Id.ilmiy.uz</b> sahifasi orqali ro’yxatdan
+                        o’ting <br /> yoki telefoningizdan Qr kodni scaner
+                        qilish orqali royxatdan o’ting.
+                    </span>
+                </div>
             </div>
         </div>
     );
