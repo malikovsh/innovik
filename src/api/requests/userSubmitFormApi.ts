@@ -12,12 +12,10 @@ export class SubmitFormAPI {
     async submitForm({
         image,
         scienceid,
-        phone,
         user_id,
     }: {
         image: File;
         scienceid: string;
-        phone: string;
         user_id: string;
     }): Promise<SubmitFormResponse> {
         const formData = new FormData();
@@ -32,7 +30,6 @@ export class SubmitFormAPI {
                 },
                 params: {
                     scienceid,
-                    phone,
                     user_id,
                 },
             }

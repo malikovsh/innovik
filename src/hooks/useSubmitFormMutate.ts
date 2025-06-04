@@ -16,7 +16,6 @@ export const useSubmitForm = () => {
         mutationFn: async (body: {
             image: File;
             scienceid: string;
-            phone: string;
             user_id: string;
         }) => {
             const response = await userSubmitFormApi.submitForm(body);

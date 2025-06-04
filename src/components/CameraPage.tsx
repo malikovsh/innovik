@@ -15,9 +15,7 @@ const CameraPage: React.FC = () => {
     const [cameraActive, setCameraActive] = useState(false);
     const [permissionError, setPermissionError] = useState<string | null>(null);
     const { mutate, isPending } = useSubmitForm();
-    const { phoneNumber, scienceId, id } = useSelector(
-        (state: RootState) => state.form
-    );
+    const { scienceId, id } = useSelector((state: RootState) => state.form);
 
     const checkCameraPermission = async () => {
         try {
@@ -146,7 +144,6 @@ const CameraPage: React.FC = () => {
     const handleFinish = async () => {
         if (!imagePreview) return;
 
-        // Stop camera immediately
         stopCamera();
 
         try {
@@ -158,7 +155,6 @@ const CameraPage: React.FC = () => {
                 {
                     image: file,
                     scienceid: scienceId,
-                    phone: '998' + phoneNumber,
                     user_id: String(id),
                 },
                 {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPhoneNumber, setScienceId } from '../store/formSlice';
+import { QRCodeCanvas } from 'qrcode.react';
+import { setScienceId } from '../store/formSlice';
 import type { RootState } from '../store/store';
 
 interface UserInfoFormProps {
@@ -13,34 +14,8 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
     handleNext,
 }) => {
     const dispatch = useDispatch();
-    const { phoneNumber, scienceId } = useSelector(
-        (state: RootState) => state.form
-    );
+    const { scienceId } = useSelector((state: RootState) => state.form);
     const [isValid, setIsValid] = useState(false);
-
-    const formatPhoneNumber = (value: string): string => {
-        const digits = value.replace(/\D/g, '');
-        if (digits.length <= 9) {
-            return digits.replace(
-                /(\d{2})(\d{3})?(\d{2})?(\d{2})?/,
-                (_, p1, p2, p3, p4) => {
-                    let formatted = p1 || '';
-                    if (p2) formatted += ` ${p2}`;
-                    if (p3) formatted += `-${p3}`;
-                    if (p4) formatted += `-${p4}`;
-                    return formatted;
-                }
-            );
-        }
-        return digits
-            .slice(0, 9)
-            .replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, '$1 $2-$3-$4');
-    };
-
-    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value.replace(/\D/g, '');
-        dispatch(setPhoneNumber(value.slice(0, 9)));
-    };
 
     const formatScienceId = (value: string): string => {
         const cleaned = value.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
@@ -65,10 +40,8 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
         const scienceIdRegex = /^[A-Z]{3}-\d{4}-\d{4}$/;
         const isScienceIdValid = scienceIdRegex.test(scienceId);
 
-        const isPhoneValid = phoneNumber.replace(/\D/g, '').length === 9;
-
-        setIsValid(isPhoneValid && isScienceIdValid);
-    }, [scienceId, phoneNumber]);
+        setIsValid(isScienceIdValid);
+    }, [scienceId]);
 
     return (
         <div className={`bg-white rounded-lg p-6 shadow ${className}`}>
@@ -77,23 +50,6 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
             </h3>
 
             <div className="flex gap-4 mb-6 justify-between px-10 pt-4">
-                <div className=" flex items-center gap-2 text-xl">
-                    <div className="text-gray-800 ">Tel:</div>
-                    <div className="flex gap-2">
-                        <div className="bg-gray-50 border border-gray-300 rounded-lg px-4 py-1 text-gray-600 font-medium select-none">
-                            +998
-                        </div>
-                        <input
-                            type="text"
-                            value={formatPhoneNumber(phoneNumber)}
-                            onChange={handlePhoneChange}
-                            placeholder="99 999-99-99"
-                            className="flex-1 px-2 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-blue-800 outline-none transition-all text-xl"
-                            maxLength={11}
-                        />
-                    </div>
-                </div>
-
                 <div className="flex items-center gap-2 text-xl">
                     <div className="text-gray-800 text-xl">ScienceID:</div>
                     <div className="flex gap-2">
@@ -107,24 +63,22 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                         />
                     </div>
                 </div>
-            </div>
-
-            {/* <div>
-                <p className="text-xl text-gray-600 mb-2">
-                    ScienceID mavjud bo'lmasa PNFLni kiriting:
-                </p>
-
-                <div className="flex gap-2">
-                    <input
-                        type="text"
-                        value={pnfl}
-                        onChange={handlePnflChange}
-                        placeholder="PNFL (14 raqam)"
-                        className="px-4 py-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-blue-800 outline-none transition-all text-lg"
-                        maxLength={14}
-                    />
+                <div className="flex flex-col items-center mb-4">
+                    <span className="text-gray-700 text-xl mb-2 text-center">
+                        ScienceID mavjuda bo'lmasa <br />
+                        iltimos{' '}
+                        <a
+                            // href="https://id.ilmiy.uz"
+                            target="_blank"
+                            className="text-blue-600 font-bold underline"
+                        >
+                            id.ilmiy.uz
+                        </a>{' '}
+                        orqali ro'yxatdan o'ting
+                    </span>
+                    <QRCodeCanvas value="https://id.ilmiy.uz" size={160} />
                 </div>
-            </div> */}
+            </div>
 
             <div className="flex justify-end mt-8">
                 <button
