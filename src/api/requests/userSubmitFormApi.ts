@@ -13,10 +13,12 @@ export class SubmitFormAPI {
         image,
         scienceid,
         user_id,
+        problem,
     }: {
         image: File;
         scienceid: string;
         user_id: string;
+        problem: string;
     }): Promise<SubmitFormResponse> {
         const formData = new FormData();
         formData.append('image', image);
@@ -31,6 +33,7 @@ export class SubmitFormAPI {
                 params: {
                     scienceid,
                     user_id,
+                    problem,
                 },
             }
         );

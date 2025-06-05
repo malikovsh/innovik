@@ -17,6 +17,7 @@ export const useSubmitForm = () => {
             image: File;
             scienceid: string;
             user_id: string;
+            problem: string;
         }) => {
             const response = await userSubmitFormApi.submitForm(body);
             return response;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { QRCodeCanvas } from 'qrcode.react';
-import { setScienceId } from '../store/formSlice';
+import { setScienceId, setProblem } from '../store/formSlice';
 import type { RootState } from '../store/store';
 
 interface UserInfoFormProps {
@@ -9,13 +9,64 @@ interface UserInfoFormProps {
     handleNext?: () => void;
 }
 
+const DescriptionModal: React.FC<{
+    open: boolean;
+    onClose: () => void;
+    onSave: (desc: string) => void;
+    initialValue?: string;
+}> = ({ open, onClose, onSave, initialValue = '' }) => {
+    const [desc, setDesc] = useState(initialValue);
+
+    useEffect(() => {
+        if (open) setDesc(initialValue);
+    }, [open, initialValue]);
+
+    if (!open) return null;
+    return (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
+            <div className="bg-white rounded-lg p-6 w-[700px] shadow-lg">
+                <h4 className="text-xl font-semibold mb-4">
+                    Murojaatning qisqacha tavsifi
+                </h4>
+                <textarea
+                    className="w-full border text-lg border-gray-300 rounded p-2 mb-4"
+                    rows={4}
+                    value={desc}
+                    onChange={(e) => setDesc(e.target.value)}
+                    placeholder="Murojaat mazmunini kiriting..."
+                />
+                <div className="flex justify-end gap-2">
+                    <button
+                        className="px-4 py-2 bg-gray-300 rounded"
+                        onClick={onClose}
+                    >
+                        Bekor qilish
+                    </button>
+                    <button
+                        className="px-4 py-2 bg-blue-800 text-white rounded"
+                        onClick={() => {
+                            onSave(desc);
+                        }}
+                        disabled={!desc.trim()}
+                    >
+                        Saqlash
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const UserInfoForm: React.FC<UserInfoFormProps> = ({
     className = '',
     handleNext,
 }) => {
     const dispatch = useDispatch();
-    const { scienceId } = useSelector((state: RootState) => state.form);
+    const { scienceId, problem } = useSelector(
+        (state: RootState) => state.form
+    );
     const [isValid, setIsValid] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
 
     const formatScienceId = (value: string): string => {
         const cleaned = value.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
@@ -42,6 +93,12 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
 
         setIsValid(isScienceIdValid);
     }, [scienceId]);
+
+    const handleSaveDescription = (desc: string) => {
+        dispatch(setProblem(desc));
+        setModalOpen(false);
+        if (handleNext) handleNext();
+    };
 
     return (
         <div className={`bg-white rounded-lg p-6 shadow ${className}`}>
@@ -70,8 +127,8 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                             : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
                     onClick={() => {
-                        if (isValid && handleNext) {
-                            handleNext();
+                        if (isValid) {
+                            setModalOpen(true);
                         }
                     }}
                     disabled={!isValid}
@@ -97,6 +154,14 @@ const UserInfoForm: React.FC<UserInfoFormProps> = ({
                     </span>
                 </div>
             </div>
+
+            {/* Modal */}
+            <DescriptionModal
+                open={modalOpen}
+                onClose={() => setModalOpen(false)}
+                onSave={handleSaveDescription}
+                initialValue={problem}
+            />
         </div>
     );
 };
