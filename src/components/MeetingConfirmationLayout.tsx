@@ -22,7 +22,7 @@ export const MeetingConfirmationLayout: React.FC = () => {
         <div className="mx-auto px-4 py-8">
             <div className="grid grid-cols-3 gap-8">
                 <div className="flex flex-col gap-4 min-h-screen col-span-1">
-                    <div className="bg-white rounded-md shadow-md overflow-hidden flex-1 flex flex-col">
+                    <div className="bg-white rounded-md overflow-hidden flex-1 flex flex-col border-[2px]">
                         <div className="px-6 py-4">
                             <h2 className="text-xl font-semibold">
                                 Uchrashuv tasdiqlanmoqda
@@ -39,7 +39,7 @@ export const MeetingConfirmationLayout: React.FC = () => {
                             />
                         </div>
                     </div>
-                    <div className="bg-white rounded-md shadow-md overflow-hidden flex-1 flex flex-col">
+                    <div className="bg-white rounded-md overflow-hidden flex-1 flex flex-col border-[2px]">
                         <div className="px-6 py-4">
                             <h2 className="text-xl font-semibold">
                                 Tasdiqlandi
